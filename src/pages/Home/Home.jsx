@@ -37,9 +37,6 @@ const Home = () => {
         <TitleCards title={'Top Picks for You'}/>
        </div>
        <Footer />
-
-       
-
         </div>
   )
 }
