@@ -1,0 +1,20 @@
+
+import './Navbar.css'
+
+import logo from '../../assets/logo.png'
+
+const Navbar = () => {
+  return (
+    <div className='navbar'>
+
+        <div className="navbar-left">
+
+            <img  src={logo}/>
+        </div>
+        <div className="navbar-right"></div>
+
+    </div>
+  )
+}
+
+export default Navbar
