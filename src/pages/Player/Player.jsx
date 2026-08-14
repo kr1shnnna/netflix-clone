@@ -3,10 +3,13 @@ import back_arrow_icon from '../../assets/back_arrow_icon.png'
 import { useEffect } from 'react'
 import { useState } from 'react'
 import { useParams } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 const Player = () => {
 
   const {id}=useParams();
+
+  const navigate=useNavigate();
 
 
   const [apiData,setApiData]=useState({
@@ -35,7 +38,9 @@ fetch(`https://api.themoviedb.org/3/movie/${id}/videos?language=en-US`, options)
   return (
     <div className='player'>
 
-      <img  src={back_arrow_icon}/>
+      <img  src={back_arrow_icon} onClick={()=>{
+        navigate('/')
+      }}/>
 
       <iframe width='90%' height='90%'
               src={  `https://www.youtube.com/embed/${apiData.key}`  }
@@ -43,7 +48,7 @@ fetch(`https://api.themoviedb.org/3/movie/${id}/videos?language=en-US`, options)
     </iframe>
 
     <div className="player-info">
-      <p>{apiData.published_at.slice(0,10)}</p>
+      <p>{apiData.published_at?.slice(0,10)}</p>
       <p>{apiData.name}</p>
       <p>{apiData.type}</p>
     </div>

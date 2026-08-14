@@ -3,6 +3,7 @@ import './TitleCards.css'
 import { useRef } from 'react'
 import { useEffect } from 'react'
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 
 const TitleCards = ({title,category}) => {
@@ -46,12 +47,12 @@ cardsRef.current.addEventListener('wheel',handleWheel);
       
         <div className="card-list" ref={cardsRef}>
           {apiData.map((card,index)=>{
-            return <div className="card" key={index}>
+            return <Link to={`/player/${card.id}`}className="card" key={index}>
               
               <img src={`https://image.tmdb.org/t/p/w500`+card.backdrop_path} />
               <p>{card.original_title}</p>
 
-            </div>
+            </Link>
 
 
           })}
